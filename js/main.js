@@ -4,6 +4,16 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ---------- last-updated (from the served file's modified date) ---------- */
+const lastUpdatedEl = document.getElementById('lastUpdated');
+if (lastUpdatedEl) {
+  const modDate = new Date(document.lastModified);
+  if (!isNaN(modDate)) {
+    lastUpdatedEl.textContent = modDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+  // if document.lastModified can't be parsed, the static fallback text in the HTML stays as-is
+}
+
 /* ---------- sticky nav shadow on scroll ---------- */
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);

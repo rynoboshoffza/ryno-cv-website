@@ -609,8 +609,9 @@ section.tight { padding: 36px 0; }
   border-radius: 999px;
   white-space: nowrap;
 }
-.status-active { background: rgba(0,229,160,0.14); color: var(--mint); }
-.status-progress { background: rgba(255,184,77,0.16); color: var(--amber); }
+.status-shipped { background: rgba(0,229,160,0.14); color: var(--mint); }
+.status-active-dev { background: rgba(255,184,77,0.16); color: var(--amber); }
+.status-idea { background: rgba(255,255,255,0.08); color: var(--text-faint); border: 1px solid var(--border-strong); }
 .project-desc { color: var(--text-muted); font-size: 14.5px; margin-bottom: 16px; flex: 1; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
 .project-foot {
@@ -765,6 +766,11 @@ footer {
   text-align: center;
   color: var(--text-faint);
   font-size: 13.5px;
+}
+.footer-meta {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.75;
 }
 
 /* ---------- reveal animation ---------- */
