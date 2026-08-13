@@ -38,9 +38,10 @@ const termScript = [
   { p: '$ ', t: 'status --role', out: false },
   { p: '', t: 'Senior Specialist: Security Solutions', out: true, cls: 'out' },
   { p: '', t: 'Altron Security, since 2022', out: true, cls: 'path' },
-  { p: '$ ', t: 'ls ./stack', out: false },
+  { p: '$ ', t: 'ls ./skills', out: false },
   { p: '', t: 'PingFederate  PingAccess  PingDirectory', out: true, cls: 'tag' },
-  { p: '', t: 'SailPoint ISC  NetIQ  OpenText  AWS', out: true, cls: 'tag' },
+  { p: '', t: 'SailPoint ISC  OpenText  AWS', out: true, cls: 'tag' },
+  { p: '', t: 'Linux  Claude', out: true, cls: 'tag' },
 ];
 
 function typeLine(idx) {
