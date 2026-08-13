@@ -107,11 +107,11 @@ img { max-width: 100%; display: block; }
   color: var(--text-muted);
   max-width: 640px;
   font-size: 17px;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
-section { position: relative; padding: 110px 0; }
-section.tight { padding: 70px 0; }
+section { position: relative; padding: 56px 0; }
+section.tight { padding: 36px 0; }
 
 /* ---------- background blobs ---------- */
 .blob {
@@ -830,7 +830,7 @@ footer {
     background: var(--surface-glass);
     border: 1px solid var(--border-strong);
   }
-  section { padding: 76px 0; }
+  section { padding: 40px 0; }
   .skills-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
