@@ -267,6 +267,35 @@ section.tight { padding: 70px 0; }
   gap: 56px;
   align-items: center;
 }
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.hero-avatar-ring {
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--gradient-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px -10px rgba(47, 107, 255, 0.6);
+}
+.hero-avatar-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--bg);
+}
+.hero-identity-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--text); }
+.hero-identity-role { font-size: 12.5px; color: var(--text-faint); }
+
 .hero h1 {
   font-size: clamp(38px, 5.4vw, 68px);
   margin-bottom: 20px;
