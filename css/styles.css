@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Ryno Boshoff — CV site
+   Ryno Boshoff CV site
    Design language: dark, gradient-accented, confident/funky-professional
-   (ProtonVPN-inspired: near-black surfaces, electric-blue→pink gradient energy,
+   (ProtonVPN-inspired: near-black surfaces, electric-blue gradient energy,
    bold geometric type, glass cards, soft blob glow, restrained motion)
    ========================================================================== */
 
@@ -19,14 +19,14 @@
   --text-muted: #9a9ab3;
   --text-faint: #6a6a85;
 
-  /* Brand gradient — blue is primary, pink/mint are accent pops */
-  --blue: #3d6bff;
-  --blue-2: #7c9bff;
-  --pink: #ff5c93;
+  /* Brand: blue only. Mint/amber are functional status colors (active/in-progress), not decorative brand accents. */
+  --blue: #2f6bff;
+  --blue-2: #6ea1ff;
+  --blue-deep: #1b3fb8;
   --mint: #00e5a0;
   --amber: #ffb84d;
 
-  --gradient-1: linear-gradient(120deg, var(--blue) 0%, var(--pink) 100%);
+  --gradient-1: linear-gradient(120deg, var(--blue-deep) 0%, var(--blue) 55%, var(--blue-2) 100%);
   --gradient-2: linear-gradient(120deg, var(--mint) 0%, var(--blue) 100%);
 
   --radius-sm: 10px;
@@ -194,13 +194,13 @@ section.tight { padding: 70px 0; }
 .nav-cta {
   padding: 9px 18px;
   border-radius: 999px;
-  background: var(--text);
-  color: var(--bg);
+  background: var(--blue);
+  color: #ffffff;
   font-size: 14px;
-  font-weight: 600;
-  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  font-weight: 700;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
 }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(255,255,255,0.35); }
+.nav-cta:hover { transform: translateY(-1px); background: var(--blue-2); box-shadow: 0 8px 24px -8px rgba(47, 107, 255, 0.6); }
 
 .nav-toggle {
   display: none;
@@ -266,24 +266,6 @@ section.tight { padding: 70px 0; }
   gap: 56px;
   align-items: center;
 }
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 14px 7px 8px;
-  border-radius: 999px;
-  background: var(--surface-glass);
-  border: 1px solid var(--border-strong);
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
-.eyebrow .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 0 0 0 3px rgba(0, 229, 160, 0.18);
-}
-
 .hero h1 {
   font-size: clamp(38px, 5.4vw, 68px);
   margin-bottom: 20px;
@@ -355,7 +337,7 @@ section.tight { padding: 70px 0; }
 .term-line .prompt { color: var(--mint); }
 .term-line .path { color: var(--blue-2); }
 .term-line .out { color: var(--text); }
-.term-line .tag { color: var(--pink); }
+.term-line .tag { color: var(--mint); }
 .term-cursor {
   display: inline-block;
   width: 8px; height: 15px;
@@ -463,7 +445,7 @@ section.tight { padding: 70px 0; }
   position: absolute;
   left: 5px; top: 6px; bottom: 6px;
   width: 2px;
-  background: linear-gradient(var(--blue), var(--pink), transparent);
+  background: linear-gradient(var(--blue), var(--blue-2), transparent);
   border-radius: 2px;
 }
 .tl-item { position: relative; padding-bottom: 44px; }
@@ -523,6 +505,21 @@ section.tight { padding: 70px 0; }
 }
 
 /* ---------- certifications ---------- */
+.cert-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+}
+.cert-group-heading-past { margin-top: 40px; }
+.cert-group-heading .dot { width: 8px; height: 8px; border-radius: 50%; }
+.cert-group-heading .dot.mint { background: var(--mint); box-shadow: 0 0 0 3px rgba(0,229,160,0.18); }
+.cert-group-heading .dot.amber { background: var(--amber); box-shadow: 0 0 0 3px rgba(255,184,77,0.18); }
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -539,6 +536,7 @@ section.tight { padding: 70px 0; }
   transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 .cert-card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+.cert-card-past { opacity: 0.72; }
 .cert-badge {
   flex-shrink: 0;
   width: 40px; height: 40px;
@@ -548,8 +546,12 @@ section.tight { padding: 70px 0; }
   font-size: 17px;
   color: #05140f;
 }
+.cert-badge-past { background: var(--surface-glass); border: 1px solid var(--border-strong); color: var(--text-faint); }
 .cert-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
 .cert-sub { font-size: 13px; color: var(--text-faint); }
+.cert-status { font-size: 11.5px; font-weight: 600; margin-top: 6px; }
+.status-active-text { color: var(--mint); }
+.status-past-text { color: var(--text-faint); }
 
 /* ---------- projects ---------- */
 .project-grid {
@@ -614,7 +616,43 @@ section.tight { padding: 70px 0; }
 }
 .privacy-note { display: flex; align-items: center; gap: 6px; }
 
-/* boshoff bank — faithful recreation of the real dashboard layout,
+.read-more-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 14px;
+  color: var(--blue-2);
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.read-more-btn:hover { color: var(--text); }
+.read-more-btn .chev { font-size: 10px; transition: transform 0.25s var(--ease); display: inline-block; }
+.read-more-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+.read-more-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease);
+}
+.read-more-panel-inner { padding-bottom: 4px; }
+.read-more-panel p { color: var(--text-muted); font-size: 13.5px; line-height: 1.65; margin-bottom: 12px; }
+.read-more-panel p:last-of-type { margin-bottom: 12px; }
+.read-more-panel a { color: var(--blue-2); font-weight: 600; }
+
+.diagram {
+  width: 100%;
+  height: auto;
+  margin-top: 4px;
+  display: block;
+}
+
+/* boshoff bank: faithful recreation of the real dashboard layout,
    with every amount blurred. Labels/structure are not sensitive; the
    numbers are, so only .redact gets the blur filter. */
 .bb-mock {
@@ -695,7 +733,8 @@ section.tight { padding: 70px 0; }
 
 /* generic project glyph visuals */
 .visual-shopper { background: radial-gradient(circle at 30% 20%, rgba(0,229,160,0.35), transparent 55%), radial-gradient(circle at 80% 80%, rgba(124,92,255,0.35), transparent 55%); }
-.visual-tower { background: radial-gradient(circle at 70% 30%, rgba(255,92,147,0.35), transparent 55%), radial-gradient(circle at 20% 80%, rgba(255,184,77,0.3), transparent 55%); }
+.visual-tower { background: radial-gradient(circle at 70% 30%, rgba(47,107,255,0.35), transparent 55%), radial-gradient(circle at 20% 80%, rgba(255,184,77,0.3), transparent 55%); }
+.project-visual-img { background-size: cover; background-position: center; }
 .visual-server { background: radial-gradient(circle at 50% 50%, rgba(124,92,255,0.3), transparent 60%); }
 .glyph-center {
   position: absolute; inset: 0;

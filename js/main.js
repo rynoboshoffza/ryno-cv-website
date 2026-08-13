@@ -1,5 +1,5 @@
 // ==========================================================================
-// Ryno Boshoff — CV site interactions
+// Ryno Boshoff, CV site interactions
 // ==========================================================================
 
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -34,14 +34,13 @@ revealEls.forEach(el => io.observe(el));
 const termBody = document.getElementById('termBody');
 const termScript = [
   { p: '$ ', t: 'whoami', out: false },
-  { p: '', t: 'ryno_boshoff — IAM & Cybersecurity Engineer', out: true, cls: 'out' },
-  { p: '$ ', t: 'cat skills.txt | grep certified', out: false },
-  { p: '', t: '✓ Ping Identity Certified Professional', out: true, cls: 'tag' },
-  { p: '', t: '✓ AWS Solutions Architect – Associate', out: true, cls: 'tag' },
-  { p: '', t: '✓ Okta · Azure · SUSE · Fortinet', out: true, cls: 'tag' },
-  { p: '$ ', t: 'status --current-role', out: false },
+  { p: '', t: 'ryno_boshoff, IAM & Cybersecurity Engineer', out: true, cls: 'out' },
+  { p: '$ ', t: 'status --role', out: false },
   { p: '', t: 'Senior Specialist: Security Solutions', out: true, cls: 'out' },
-  { p: '', t: '@ Altron Security · since 2022', out: true, cls: 'path' },
+  { p: '', t: 'Altron Security, since 2022', out: true, cls: 'path' },
+  { p: '$ ', t: 'ls ./stack', out: false },
+  { p: '', t: 'PingFederate  PingAccess  PingDirectory', out: true, cls: 'tag' },
+  { p: '', t: 'SailPoint ISC  NetIQ  OpenText  AWS', out: true, cls: 'tag' },
 ];
 
 function typeLine(idx) {
@@ -87,3 +86,28 @@ if (prefersReducedMotion) {
 } else {
   setTimeout(() => typeLine(0), 500);
 }
+
+/* ---------- project card "read more" accordions ---------- */
+document.querySelectorAll('.read-more-btn').forEach(btn => {
+  const panel = btn.nextElementSibling;
+  const label = btn.querySelector('.rm-label');
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      panel.style.maxHeight = panel.scrollHeight + 'px'; // set current height first so the transition has a starting point
+      requestAnimationFrame(() => { panel.style.maxHeight = '0px'; });
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      if (label) label.textContent = 'Read more';
+    } else {
+      panel.classList.add('open');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      if (label) label.textContent = 'Show less';
+    }
+  });
+  // once the open transition finishes, let height track content (e.g. on resize)
+  panel.addEventListener('transitionend', () => {
+    if (panel.classList.contains('open')) panel.style.maxHeight = 'none';
+  });
+});
