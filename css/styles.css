@@ -624,42 +624,6 @@ section.tight { padding: 36px 0; }
 }
 .privacy-note { display: flex; align-items: center; gap: 6px; }
 
-.read-more-btn {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-bottom: 14px;
-  color: var(--blue-2);
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.read-more-btn:hover { color: var(--text); }
-.read-more-btn .chev { font-size: 10px; transition: transform 0.25s var(--ease); display: inline-block; }
-.read-more-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
-
-.read-more-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s var(--ease);
-}
-.read-more-panel-inner { padding-bottom: 4px; }
-.read-more-panel p { color: var(--text-muted); font-size: 13.5px; line-height: 1.65; margin-bottom: 12px; }
-.read-more-panel p:last-of-type { margin-bottom: 12px; }
-.read-more-panel a { color: var(--blue-2); font-weight: 600; }
-
-.diagram {
-  width: 100%;
-  height: auto;
-  margin-top: 4px;
-  display: block;
-}
-
 /* boshoff bank: faithful recreation of the real dashboard layout,
    with every amount blurred. Labels/structure are not sensitive; the
    numbers are, so only .redact gets the blur filter. */
